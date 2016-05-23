@@ -1,11 +1,8 @@
 (function($) {
-  jQuery.fn.IosFixed = function(eventSelector) {
+  jQuery.fn.IosFixed = function() {
 
+    var eventSelector = this;
     var fixedClass = 'ios-fixed';
-    if (eventSelector === '' || eventSelector == undefined) {
-      console.log('error: you need pass fixed selector name.');
-      return;
-    }
 
     var selector = 'body';
     var addFixed = function() {
@@ -29,7 +26,7 @@
       $(selector).removeClass(fixedClass);
     };
 
-    $(eventSelector).on({
+    eventSelector.on({
       click: function () {
         if (! $(selector).hasClass(fixedClass)) {
           addFixed();
